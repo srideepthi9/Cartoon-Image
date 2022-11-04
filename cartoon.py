@@ -23,5 +23,5 @@ cartoon = cv2.bitwise_and(colorImage, colorImage, mask=getEdge)
 #masking colored image with edges to give cartoon look
 
 plt.imshow(cartoon, cmap='gray')
-plt.show()
 plt.savefig('saved_figure.png')
+plt.show()
