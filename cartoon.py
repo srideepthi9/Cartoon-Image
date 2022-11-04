@@ -12,12 +12,12 @@ smooth = cv2.medianBlur(grayImg, 5) #smoothen image so that edges can be extract
 
 getEdge = cv2.adaptiveThreshold(smooth, 255, 
   cv2.ADAPTIVE_THRESH_MEAN_C, 
-  cv2.THRESH_BINARY, 21, 21)
+  cv2.THRESH_BINARY, 21, 10)
 #getting edges
 plt.imshow(getEdge, cmap='gray')
 plt.show()
 
-colorImage = cv2.bilateralFilter(readImg, 9, 300, 300)
+colorImage = cv2.bilateralFilter(readImg, 21, 300, 300)
 #smooth colored image
 cartoon = cv2.bitwise_and(colorImage, colorImage, mask=getEdge)
 #masking colored image with edges to give cartoon look
